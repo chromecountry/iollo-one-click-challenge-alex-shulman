@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find:*)",
+      "Bash(CUSTOMER_ID=test-customer ./scripts/deploy_infrastructure.sh)",
+      "Bash(CUSTOMER_ID=test-customer SIZE=medium ./scripts/run_smoke_checks.sh)",
+      "Bash(CUSTOMER_ID=test-customer REGION=eu-west-1 ./scripts/configure_dns.sh)",
+      "Bash(CUSTOMER_ID=test-customer ./scripts/configure_dns.sh)",
+      "Bash(make:*)",
+      "Bash(pip3 install:*)",
+      "Bash(python3:*)",
+      "Bash(source:*)",
+      "Bash(pip install:*)",
+      "Bash(chmod:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

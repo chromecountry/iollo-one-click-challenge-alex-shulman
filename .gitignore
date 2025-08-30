@@ -1,0 +1,63 @@
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+.terraform.lock.hcl
+terraform.tfplan
+terraform.tfvars
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+
+# Node.js (if needed)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Analysis outputs
+analysis/outputs/
+infra/envs/dev/analysis/outputs/
+analysis/venv/
+infra/envs/dev/analysis/venv/
+*.png
+*.jpg
+*.jpeg
+*.pdf
+*.json
+!sample.csv
+!requirements.txt
+!visualization_catalog.json
+
+# Temporary files
+/tmp/
+temp/
+*.tmp

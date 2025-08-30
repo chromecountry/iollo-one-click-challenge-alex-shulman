@@ -1,0 +1,81 @@
+(undo-tree-save-format-version . 1)
+"4ef044038eabeffe13d51e03d78cb861a9a0f0fa"
+[nil nil nil nil (26803 13629 15486 590000) 0 nil]
+([nil nil ((1 . 3) (t . -1)) nil (26803 13629 15484 527000) 0 nil])
+([nil nil ((3 . 5)) nil (26803 13629 15483 60000) 0 nil])
+([nil nil ((#("*" 0 1 (fontified t ws-butler-chg chg)) . -2) (undo-tree-id119 . -1) (#(" " 0 1 (fontified t ws-butler-chg chg face org-level-2)) . -3) (undo-tree-id120 . -1) (#("P" 0 1 (fontified t ws-butler-chg chg face org-level-2)) . -4) (undo-tree-id121 . -1) 5) nil (26803 13629 15481 315000) 0 nil])
+([nil nil ((2 . 10)) nil (26803 13629 15478 533000) 0 nil])
+([nil nil ((10 . 12)) nil (26803 13629 15478 251000) 0 nil])
+([nil nil ((nil rear-nonsticky nil 3278 . 3279) (nil fontified nil 12 . 3279) (12 . 3279)) nil (26803 13629 15477 957000) 0 nil])
+([nil nil ((3279 . 3281)) nil (26803 13629 15477 366000) 0 nil])
+([nil nil ((3281 . 3282)) nil (26803 13629 15475 802000) 0 nil])
+([nil nil ((3282 . 3289)) nil (26803 13629 15475 14000) 0 nil])
+([nil nil ((#(" " 0 1 (fontified t ws-butler-chg chg face org-level-1)) . -3282) (undo-tree-id20 . -1) (undo-tree-id21 . -1) (undo-tree-id22 . -1) (undo-tree-id23 . -1) (undo-tree-id24 . -1) (undo-tree-id25 . -1) (undo-tree-id26 . -1) (undo-tree-id27 . -1) (undo-tree-id28 . -1) (undo-tree-id29 . -1) (undo-tree-id30 . -1) (undo-tree-id31 . -1) (undo-tree-id32 . -1) (undo-tree-id33 . -1) (undo-tree-id34 . -1) (undo-tree-id35 . -1) (undo-tree-id36 . -1) (undo-tree-id37 . -1) (undo-tree-id38 . -1) (#("s" 0 1 (fontified t ws-butler-chg chg face org-level-1)) . -3283) (undo-tree-id39 . -1) (undo-tree-id40 . -1) (undo-tree-id41 . -1) (undo-tree-id42 . -1) (undo-tree-id43 . -1) (undo-tree-id44 . -1) (undo-tree-id45 . -1) (undo-tree-id46 . -1) (undo-tree-id47 . -1) (undo-tree-id48 . -1) (undo-tree-id49 . -1) (undo-tree-id50 . -1) (undo-tree-id51 . -1) (undo-tree-id52 . -1) (undo-tree-id53 . -1) (undo-tree-id54 . -1) (undo-tree-id55 . -1) (undo-tree-id56 . -1) (undo-tree-id57 . -1) (#("t" 0 1 (fontified t ws-butler-chg chg face org-level-1)) . -3284) (undo-tree-id58 . -1) (undo-tree-id59 . -1) (undo-tree-id60 . -1) (undo-tree-id61 . -1) (undo-tree-id62 . -1) (undo-tree-id63 . -1) (undo-tree-id64 . -1) (undo-tree-id65 . -1) (undo-tree-id66 . -1) (undo-tree-id67 . -1) (undo-tree-id68 . -1) (undo-tree-id69 . -1) (undo-tree-id70 . -1) (undo-tree-id71 . -1) (undo-tree-id72 . -1) (undo-tree-id73 . -1) (undo-tree-id74 . -1) (#("e" 0 1 (fontified t ws-butler-chg chg face org-level-1)) . -3285) (undo-tree-id75 . -1) (undo-tree-id76 . -1) (undo-tree-id77 . -1) (undo-tree-id78 . -1) (undo-tree-id79 . -1) (undo-tree-id80 . -1) (undo-tree-id81 . -1) (undo-tree-id82 . -1) (undo-tree-id83 . -1) (undo-tree-id84 . -1) (undo-tree-id85 . -1) (undo-tree-id86 . -1) (undo-tree-id87 . -1) (undo-tree-id88 . -1) (undo-tree-id89 . -1) (#("p" 0 1 (fontified t ws-butler-chg chg face org-level-1)) . -3286) (undo-tree-id90 . -1) (undo-tree-id91 . -1) (undo-tree-id92 . -1) (undo-tree-id93 . -1) (undo-tree-id94 . -1) (undo-tree-id95 . -1) (undo-tree-id96 . -1) (undo-tree-id97 . -1) (undo-tree-id98 . -1) (undo-tree-id99 . -1) (undo-tree-id100 . -1) (undo-tree-id101 . -1) (undo-tree-id102 . -1) (#(" " 0 1 (fontified t ws-butler-chg chg face org-level-1)) . -3287) (undo-tree-id103 . -1) (undo-tree-id104 . -1) (undo-tree-id105 . -1) (undo-tree-id106 . -1) (undo-tree-id107 . -1) (undo-tree-id108 . -1) (undo-tree-id109 . -1) (undo-tree-id110 . -1) (undo-tree-id111 . -1) (undo-tree-id112 . -1) (#("t" 0 1 (fontified t ws-butler-chg chg face org-level-1)) . -3288) (undo-tree-id113 . -1) (undo-tree-id114 . -1) (undo-tree-id115 . -1) (undo-tree-id116 . -1) (undo-tree-id117 . -1) (undo-tree-id118 . -1) 3289) nil (26803 13629 15472 828000) 0 nil])
+([nil nil ((3282 . 3283)) nil (26803 13629 15364 955000) 0 nil])
+([nil nil ((#("t" 0 1 (fontified t ws-butler-chg chg)) . -3282) (undo-tree-id14 . -1) (undo-tree-id15 . -1) (undo-tree-id16 . -1) (undo-tree-id17 . -1) (undo-tree-id18 . -1) (undo-tree-id19 . -1) 3283) nil (26803 13629 15363 626000) 0 nil])
+([nil nil ((3282 . 3297)) nil (26803 13629 15361 152000) 0 nil])
+([nil nil ((3297 . 3298)) nil (26803 13629 15360 683000) 0 nil])
+([nil nil ((3293 . 3302) (#("skele" 0 5 (fontified t ws-butler-chg chg face org-level-1)) . -3293) (undo-tree-id0 . -5) (undo-tree-id1 . -1) (undo-tree-id2 . -1) (undo-tree-id3 . -1) (undo-tree-id4 . -2) (undo-tree-id5 . -2) (undo-tree-id6 . -3) (undo-tree-id7 . -3) (undo-tree-id8 . -4) (undo-tree-id9 . -4) (undo-tree-id10 . -5) (undo-tree-id11 . -5) (undo-tree-id12 . -5) (undo-tree-id13 . -5) 3298) nil (26803 13629 15358 23000) 0 nil])
+([nil nil ((3302 . 3304)) nil (26803 13629 15302 286000) 0 nil])
+([nil nil ((nil rear-nonsticky nil 4621 . 4622) (nil fontified nil 3304 . 4622) (3304 . 4622)) nil (26803 13629 15294 465000) 0 nil])
+([nil nil ((4622 . 4624) (t 26803 13629 14207 430000)) nil (26803 14361 694676 933000) 0 nil])
+([nil nil ((4624 . 4626)) nil (26803 14361 694951 342000) 0 nil])
+([nil nil ((4625 . 4632)) nil (26803 14374 492867 330000) 0 nil] [nil nil ((nil rear-nonsticky nil 6082 . 6083) (nil fontified nil 4623 . 6083) (4623 . 6083)) ((#("continue to step 3
+
+STEP 3: CI/CD PIPELINE + STUB SCRIPTS
+
+TASK
+Implement .github/workflows/deploy.yml with jobs validate, plan, deploy, test. Flesh out the stub scripts in scripts/.
+
+DETAILS
+- Workflow triggers:
+  - on push to main
+  - on workflow_dispatch
+- Jobs:
+  - validate: run `terraform fmt -check`, then `terraform validate` in infra/envs/dev
+  - plan: run `terraform plan -var=\"customer_id=${{ github.run_id }}\" -lock=false` in infra/envs/dev
+  - deploy: call scripts/deploy_infrastructure.sh (stub: just echo “Deploying infra for $CUSTOMER_ID”)
+  - test: call scripts/run_smoke_checks.sh (stub: echo checks + mock URLs)
+
+- scripts/deploy_infrastructure.sh:
+  - `set -euo pipefail`
+  - parse CUSTOMER_ID env or arg
+  - echo dry-run deployment steps
+
+- scripts/run_smoke_checks.sh:
+  - `set -euo pipefail`
+  - echo “Checking networking… OK”, “Checking compute… OK”, etc
+  - print a fake service URL like https://customer-${CUSTOMER_ID}.example.com
+
+- Ensure all jobs run on ubuntu-latest, use bash.
+
+- Make workflow compact but syntactically valid (should pass GitHub Actions YAML lint).
+
+PROCESS
+As before, provide:
+1. File tree of new/updated files
+2. File contents (with paths in fenced code blocks)
+3. Shell script snippet to create/update all files locally
+4. Quick verify checklist (commands: terraform fmt/validate, run scripts manually, gh workflow lint if possible)
+5. Blocking questions if any
+STOP after this step, do not continue further.
+" 0 913 (ws-butler-chg chg fontified nil) 913 955 (ws-butler-chg chg fontified nil face org-link mouse-face highlight keymap (keymap (follow-link . mouse-face) (mouse-3 . org-find-file-at-mouse) (mouse-2 . org-open-at-mouse)) help-echo "LINK: https://customer-${CUSTOMER_ID}.example.com" htmlize-link (:uri "https://customer-${CUSTOMER_ID}.example.com") font-lock-multiline t) 955 956 (ws-butler-chg chg fontified nil rear-nonsticky (mouse-face highlight keymap invisible intangible help-echo org-linked-text htmlize-link) face org-link mouse-face highlight keymap (keymap (follow-link . mouse-face) (mouse-3 . org-find-file-at-mouse) (mouse-2 . org-open-at-mouse)) help-echo "LINK: https://customer-${CUSTOMER_ID}.example.com" htmlize-link (:uri "https://customer-${CUSTOMER_ID}.example.com") font-lock-multiline t) 956 1413 (ws-butler-chg chg fontified nil) 1413 1459 (ws-butler-chg chg fontified nil) 1459 1460 (ws-butler-chg chg fontified nil rear-nonsticky nil)) . 4623) (undo-tree-id122 . -1460) (undo-tree-id123 . -213) (nil fontified t 5579 . 6036) (nil fontified t 5578 . 5579) (nil fontified t 5536 . 5578) (nil fontified t 4623 . 5536) (nil rear-nonsticky t 6082 . 6083)) (26803 14361 694672 404000) 0 nil])
+([nil nil ((#("d" 0 1 (fontified t ws-butler-chg chg face org-level-1)) . -4629) (undo-tree-id130 . -1) (undo-tree-id131 . -1) (undo-tree-id132 . -1) (#("i" 0 1 (fontified t ws-butler-chg chg face org-level-1)) . -4630) (undo-tree-id133 . -1) (undo-tree-id134 . -1) (undo-tree-id135 . -1) (#("d" 0 1 (fontified t ws-butler-chg chg face org-level-1)) . -4631) (undo-tree-id136 . -1) 4632) nil (26803 14374 492866 301000) 0 nil])
+nil
+([nil nil ((4629 . 4641)) nil (26803 14374 492863 487000) 0 nil])
+([nil nil ((#(" " 0 1 (fontified t ws-butler-chg chg face org-level-1)) . -4639) (undo-tree-id124 . -1) (undo-tree-id125 . -1) (undo-tree-id126 . -1) (#("e" 0 1 (fontified t ws-butler-chg chg face org-level-1)) . -4640) (undo-tree-id127 . -1) (undo-tree-id128 . -1) (undo-tree-id129 . -1) 4641) nil (26803 14374 492862 441000) 0 nil])
+([nil nil ((4639 . 4650)) nil (26803 14374 492852 381000) 0 nil])
+([nil nil ((#(" " 0 1 (fontified nil ws-butler-chg delete face org-level-1)) . 4650) (4651 . 4652) 4650) nil (26803 14374 492851 386000) 0 nil])
+([nil nil ((nil rear-nonsticky nil 6110 . 6111) (nil fontified nil 4651 . 6111) (4651 . 6111)) nil (26803 14374 492847 815000) 0 nil])
+([nil nil ((6110 . 6113) (t 26803 14374 496459 48000)) nil (26803 14961 773671 386000) 0 nil])
+([nil nil ((6113 . 6115)) nil (26803 14961 773671 49000) 0 nil])
+([nil nil ((6115 . 6123)) nil (26803 14961 773670 780000) 0 nil])
+([nil nil ((#("o" 0 1 (fontified t ws-butler-chg chg face org-level-1)) . -6122) (undo-tree-id138 . -1) 6123) nil (26803 14961 773670 415000) 0 nil])
+([nil nil ((6122 . 6125)) nil (26803 14961 773669 125000) 0 nil])
+([nil nil ((#("j" 0 1 (fontified t ws-butler-chg chg face org-level-1)) . -6124) (undo-tree-id137 . -1) 6125) nil (26803 14961 773668 128000) 0 nil])
+([nil nil ((6124 . 6132)) nil (26803 14961 773658 879000) 0 nil])
+([nil nil ((6132 . 6133)) nil (26803 14961 773658 122000) 0 nil])
+([nil nil ((nil rear-nonsticky nil 7482 . 7483) (nil fontified nil 6133 . 7483) (6133 . 7483)) nil (26803 14961 773657 343000) 0 nil])
+([nil current ((#("
+" 0 1 (fontified t rear-nonsticky t ws-butler-chg delete)) . 7483) (7484 . 7484) 7483) nil (26803 14961 773653 321000) 0 nil])
+nil

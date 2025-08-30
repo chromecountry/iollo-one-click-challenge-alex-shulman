@@ -1,0 +1,4 @@
+# Example Terraform variables for dev environment
+customer_id = "demo-customer"
+region      = "us-east-1"
+size        = "small"

@@ -1,0 +1,263 @@
+* priming
+
+GLOBAL CONSTRAINTS
+- This is MOCK/DRY-RUN ONLY. Do NOT run `terraform apply`, provision cloud resources, or require a real AWS account. We only need: `terraform fmt` + `terraform validate` + a mock `plan`.
+- Keep secrets out of code. Assume env vars and `.env.example`.
+- Keep outputs small and minimal; prioritize correctness and validation.
+- Prefer Bash + Python. Minimal dependencies.
+- Repo name: `iollo-one-click-challenge-<MY-NAME>` (use a placeholder until I confirm my name).
+
+PROCESS
+We will work in steps. For each step:
+1) Output a concise FILE TREE (what you will create/modify).
+2) Provide FILE CONTENTS for each file in separate fenced code blocks labeled with their POSIX path.
+3) Provide a SINGLE shell script snippet I can copy-paste to create/update all files locally (mkdir + tee/heredoc).
+4) Provide a QUICK VERIFY checklist (commands I run to verify).
+5) Pose any BLOCKING QUESTIONS (if none, say “No blocking questions”).
+6) STOP and wait for me to say “continue to step N” before proceeding.
+
+STEP PLAN (we will follow this order)
+- Step 1: Scaffold repository structure + placeholder files (no heavy code yet).
+- Step 2: Terraform module skeletons (networking, compute, dns) + `infra/envs/dev` wiring to pass `terraform validate`.
+- Step 3: GitHub Actions workflow (`validate`, `plan`, `deploy` [dry], `test`) and stub scripts.
+- Step 4: One-click trigger (CLI preferred) that calls `gh workflow run` or `curl` for `workflow_dispatch`.
+- Step 5: DNS/SSL stub + On-prem kind/k3d stub + short on-prem README.
+- Step 6: Analysis pipeline (processor, statistician, visualizer, report writer, coordinator) with mockable LLM usage.
+- Step 7: README polish (“Quickstart”, “Coding Agent Usage”, assumptions/limitations).
+
+ASSUMPTIONS (apply unless I override)
+- Terraform targets AWS-style resources (e.g., VPC/subnets/SG) but we only validate/plan; no apply.
+- `size` variable (small/medium/large) maps to instance counts/types as simple locals.
+- `GITHUB_TOKEN` and `ANTHROPIC_API_KEY` are read from env; provide `.env.example`.
+- All DNS/SSL and deploy steps are echo stubs or commented AWS CLI samples, idempotent-ish.
+
+NOW DO ONLY STEP 1.
+
+STEP 1: SCAFFOLD
+Create the repo scaffold and placeholders:
+- `README.md` with section placeholders (Quickstart + Coding Agent Usage).
+- `.github/workflows/deploy.yml` (empty jobs, TODO markers).
+- `infra/modules/{networking,compute,dns}/` each with empty `main.tf` + `variables.tf` placeholders.
+- `infra/envs/dev/main.tf` placeholder that will later wire modules.
+- `scripts/{deploy_infrastructure.sh,run_smoke_checks.sh,configure_dns.sh}` with echo stubs and `set -euo pipefail`.
+- `cli/deploy-customer.sh` stub with arg parsing + usage text (no real logic yet).
+- `onprem/bootstrap.sh` stub + `onprem/README.md`.
+- `analysis/{processor.py,statistician.py,visualizer.py,report_writer.py,coordinator.py}` with minimal `if __name__ == "__main__": print("stub")`.
+- `automation/Makefile` with `demo` and `analyze` targets (echo only for now).
+- `.env.example` with `GITHUB_TOKEN=` and `ANTHROPIC_API_KEY=` placeholders.
+- `.gitignore` for Python, Terraform, Node (if any), venvs, `*.tfstate`, `__pycache__`, `.env`.
+- `LICENSE` (MIT) placeholder.
+
+Remember the PROCESS output format and STOP after Step 1.
+
+* terraform skeletons
+
+continue to step 2
+
+STEP 2: TERRAFORM MODULE SKELETONS
+
+TASK
+Fill in minimal Terraform skeletons for infra/modules/{networking,compute,dns} and wire them together in infra/envs/dev.
+
+DETAILS
+- Each module must have a main.tf + variables.tf + outputs.tf (create outputs.tf if missing).
+- All resources should be AWS-style (VPC, subnets, instance, route53 zone/record), BUT remain safe for dry-run. No terraform apply, only fmt/validate/plan.
+- Use variables: customer_id, region, size (small/medium/large). Size maps to instance_type and instance_count via a locals block in compute.
+- Add comments in code marking them as mock/dry-run resources.
+- Add a provider block in infra/envs/dev/main.tf that pins AWS provider to a dummy region (e.g., us-east-1).
+- Wire modules together in infra/envs/dev/main.tf:
+  - networking → compute (subnet IDs output)
+  - dns → networking (VPC ID output if needed)
+- Include terraform.tfvars.example in infra/envs/dev/ with customer_id, region, size values.
+
+PROCESS
+As before, provide:
+1. File tree of new/updated files.
+2. File contents for each (with fenced code blocks labeled by file path).
+3. Shell script snippet (mkdir + tee) to update all files locally.
+4. Quick verify checklist (commands to run).
+5. Blocking questions if any.
+STOP after this step, do not continue further.
+
+
+* ci/cd pipeline and stubs
+continue to step 3
+
+STEP 3: CI/CD PIPELINE + STUB SCRIPTS
+
+TASK
+Implement .github/workflows/deploy.yml with jobs validate, plan, deploy, test. Flesh out the stub scripts in scripts/.
+
+DETAILS
+- Workflow triggers:
+  - on push to main
+  - on workflow_dispatch
+- Jobs:
+  - validate: run `terraform fmt -check`, then `terraform validate` in infra/envs/dev
+  - plan: run `terraform plan -var="customer_id=${{ github.run_id }}" -lock=false` in infra/envs/dev
+  - deploy: call scripts/deploy_infrastructure.sh (stub: just echo “Deploying infra for $CUSTOMER_ID”)
+  - test: call scripts/run_smoke_checks.sh (stub: echo checks + mock URLs)
+
+- scripts/deploy_infrastructure.sh:
+  - `set -euo pipefail`
+  - parse CUSTOMER_ID env or arg
+  - echo dry-run deployment steps
+
+- scripts/run_smoke_checks.sh:
+  - `set -euo pipefail`
+  - echo “Checking networking… OK”, “Checking compute… OK”, etc
+  - print a fake service URL like https://customer-${CUSTOMER_ID}.example.com
+
+- Ensure all jobs run on ubuntu-latest, use bash.
+
+- Make workflow compact but syntactically valid (should pass GitHub Actions YAML lint).
+
+PROCESS
+As before, provide:
+1. File tree of new/updated files
+2. File contents (with paths in fenced code blocks)
+3. Shell script snippet to create/update all files locally
+4. Quick verify checklist (commands: terraform fmt/validate, run scripts manually, gh workflow lint if possible)
+5. Blocking questions if any
+STOP after this step, do not continue further.
+
+
+* one-click trigger
+continue to step 4
+
+STEP 4: ONE-CLICK TRIGGER (CLI)
+
+TASK
+Implement cli/deploy-customer.sh as the one-click deployment trigger.
+
+DETAILS
+- Bash script with `set -euo pipefail`
+- Usage: ./cli/deploy-customer.sh --customer <name> --region <region> --size <small|medium|large>
+- Parse flags with getopts or manual shift
+- Validate required flags; print usage/help if missing
+- Script should:
+  1. Export CUSTOMER, REGION, SIZE
+  2. Trigger the GitHub Actions workflow dispatch for deploy.yml
+     - Use GitHub CLI (`gh workflow run deploy.yml -f customer=$CUSTOMER -f region=$REGION -f size=$SIZE`) if available
+     - OR provide curl fallback using the GitHub API with $GITHUB_TOKEN from env
+  3. Echo confirmation: “Triggered deployment for $CUSTOMER ($REGION, $SIZE)”
+
+- Assume $GITHUB_TOKEN is already set in env (documented in .env.example).
+- Keep script short and robust (argument checks, error exit if gh is not installed).
+
+- Update .env.example if needed to show GITHUB_TOKEN is required.
+
+PROCESS
+As before, provide:
+1. File tree of new/updated files
+2. File contents (with paths in fenced code blocks)
+3. Shell script snippet to create/update locally
+4. Quick verify checklist (e.g., run with fake args, confirm echo output, gh workflow run --dry-run if supported)
+5. Blocking questions if any
+STOP after this step, do not continue further.
+
+
+* dns ssl/ stub + on-prem cluster bootstrap
+
+* analysis pipeline
+
+continue to step 6
+
+STEP 6: ANALYSIS PIPELINE (LLM + PYTHON)
+
+TASK
+Implement a modular analysis pipeline in analysis/ with 5 components: processor, statistician, visualizer, report_writer, coordinator.
+
+DETAILS
+1. processor.py
+   - Load a CSV (path from args or default sample.csv in analysis/data/).
+   - Validate schema (at least 2 numeric cols).
+   - Save cleaned data as analysis/outputs/processed.json.
+
+2. statistician.py
+   - Load processed.json.
+   - Compute descriptive stats (mean, median, stdev) and correlations (pearson).
+   - Save as analysis/outputs/stats.json.
+
+3. visualizer.py
+   - Load processed.json and stats.json.
+   - Use matplotlib to generate at least 1 PNG chart.
+   - Save chart in analysis/outputs/chart.png.
+
+4. report_writer.py
+   - Load stats.json and chart.png path.
+   - If ANTHROPIC_API_KEY is set, call Claude with persona prompt “You are a data scientist writing an executive summary.”
+   - If not, fallback to echoing a stub Markdown string.
+   - Save report as analysis/outputs/report.md.
+
+5. coordinator.py
+   - Orchestrates all steps in order.
+   - CLI usage: python coordinator.py --data analysis/data/sample.csv
+   - Runs processor → statistician → visualizer → report_writer.
+   - Print final report path.
+
+6. analysis/data/sample.csv
+   - Generate a small synthetic dataset (e.g., sales by region, revenue, expenses).
+   - 100 rows of mock data.
+
+7. Update automation/Makefile
+   - Add `analyze` target that runs coordinator.py on sample.csv.
+
+8. Update .gitignore
+   - Ignore analysis/outputs/*
+
+PROCESS
+As before, provide:
+1. File tree of new/updated files
+2. File contents (with paths in fenced code blocks)
+3. Shell script snippet to create/update locally
+4. Quick verify checklist (e.g., run python analysis/coordinator.py --data analysis/data/sample.csv, check outputs/)
+5. Blocking questions if any
+STOP after this step, do not continue further.
+
+* readme
+
+
+continue to step 7
+
+STEP 7: FINAL README + POLISH
+
+TASK
+Finalize README.md and supporting files so the repo is submission-ready.
+
+DETAILS
+1. README.md
+   - Add a **Quickstart** section with copy-paste commands:
+     * git clone
+     * cd into repo
+     * cp .env.example .env
+     * terraform init && terraform validate in infra/envs/dev
+     * make demo
+     * ./cli/deploy-customer.sh --customer acme --region us-east-1 --size small
+     * make analyze
+   - Add a **Repository Structure** overview showing key folders.
+   - Add **Coding Agent Usage**: list 3–5 Claude prompts that accelerated development (e.g., “Generate Terraform skeletons for networking module”).
+   - Add **Assumptions / Limitations**: mock-only infra, no real AWS apply, stubs for DNS/SSL, fake data for analysis.
+   - Add **Requirements**: Terraform, GitHub CLI, Python3 + matplotlib, kind (optional for onprem).
+   - Add **Environment Setup**: .env with GITHUB_TOKEN, ANTHROPIC_API_KEY.
+
+2. LICENSE
+   - Fill in MIT license text (if not already).
+
+3. .gitignore
+   - Ensure outputs, .env, tfstate, pycache, venv are ignored.
+
+4. Automation
+   - Make sure Makefile has working targets:
+     * demo → runs cli/deploy-customer.sh with sample args
+     * analyze → runs python analysis/coordinator.py with sample.csv
+     * onprem → runs ./onprem/bootstrap.sh
+
+PROCESS
+As before, provide:
+1. File tree of new/updated files
+2. File contents (with paths in fenced code blocks)
+3. Shell script snippet to create/update locally
+4. Quick verify checklist (commands to prove README instructions work end-to-end)
+5. Blocking questions if any
+STOP after this step — this is the final step.
