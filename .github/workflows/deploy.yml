@@ -1,4 +1,5 @@
 name: One-Click Deploy
+# Updated to ensure workflow_dispatch trigger is recognized
 
 on:
   push:
